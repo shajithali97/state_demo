@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CounterScreen extends StatelessWidget {
-  CounterScreen({Key? key}) : super(key: key);
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({Key? key}) : super(key: key);
 
+  @override
+  State<CounterScreen> createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
   int _counter = 0;
+  increment() {
+    _counter++;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +35,7 @@ class CounterScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
